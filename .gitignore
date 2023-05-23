@@ -1,6 +1,12 @@
 # Default ignored files
 /shelf/
-/workspace.xml
+/.idea/
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+/my-app/node_modules
+/my-app/renderer
+/my-app/app
+/my-app/*.log
+/my-app/.next
+/my-app/dist
