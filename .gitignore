@@ -5,8 +5,12 @@
 /dataSources/
 /dataSources.local.xml
 /my-app/node_modules
-/my-app/renderer
+/my-app/renderer/.next
 /my-app/app
 /my-app/*.log
 /my-app/.next
 /my-app/dist
+
+**/.DS_Store
+
+**/*.env
