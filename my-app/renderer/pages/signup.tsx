@@ -5,9 +5,18 @@ export default function Signup() {
   const [password, setPassword] = useState<string>("");
   const isFilledForm = login.length && password.length;
 
+  async function connectToDb() {
+    try {
+     const connection = await fetch("/api/connectToDB");
+      console.log(connection)
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   function submitForm(e: FormEvent) {
     e.preventDefault();
-
+    void connectToDb();
   }
 
 
