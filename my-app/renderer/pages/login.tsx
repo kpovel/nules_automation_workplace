@@ -1,14 +1,18 @@
-import {FormEvent, useState} from "react";
+import { FormEvent, useState } from "react";
 
-export default function Signup() {
+export default function Login() {
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const isFilledForm = login.length && password.length;
 
-  async function connectToDb() {
+  async function verifyLogin() {
     try {
-     const connection = await fetch("/api/connectToDB");
-      console.log(connection)
+      const connection = await fetch("/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ login, password }),
+      });
+      console.log(connection);
     } catch (e) {
       console.log(e);
     }
@@ -16,9 +20,8 @@ export default function Signup() {
 
   function submitForm(e: FormEvent) {
     e.preventDefault();
-    void connectToDb();
+    void verifyLogin();
   }
-
 
   return (
     <>
