@@ -1,18 +1,36 @@
+import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
 
 export default function Login() {
+  const router = useRouter();
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const isFilledForm = login.length && password.length;
 
   async function verifyLogin() {
     try {
-      const connection = await fetch("/api/login", {
+      const auth = await fetch("/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ login, password }),
       });
-      console.log(connection);
+
+      if (!auth.ok) {
+        const response = (await auth.json()) as { message: string };
+        throw Error(response.message);
+      }
+
+      switch (login) {
+        case "AdminLogin":
+          router.push("/roles/admin");
+          break;
+        case "InspectorLogin":
+          router.push("/roles/inspector");
+          break;
+        case "ResponsibleLogin":
+          router.push("/roles/responsible");
+          break;
+      }
     } catch (e) {
       console.log(e);
     }
