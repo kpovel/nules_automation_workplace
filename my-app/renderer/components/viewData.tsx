@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Journal } from "../utils/dataTypes";
+import { WholeDB } from "../utils/dataTypes";
 
 export function ViewData() {
-  const [data, setData] = useState<null | Journal[]>();
+  const [data, setData] = useState<null | WholeDB[]>();
 
-  async function getJournalData() {
+  async function getAllData() {
     try {
-      const request = await fetch("/api/data/getJournalData");
+      const request = await fetch("/api/data/getAllData");
 
       const response = await request.json();
       setData(response);
@@ -16,7 +16,7 @@ export function ViewData() {
   }
 
   useEffect(() => {
-    void getJournalData();
+    void getAllData();
   }, []);
 
   return <div>view data</div>;
