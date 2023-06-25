@@ -24,11 +24,11 @@ export default function Login() {
         case "AdminLogin":
           router.push("/roles/admin");
           break;
-        case "InspectorLogin":
-          router.push("/roles/inspector");
-          break;
         case "ResponsibleLogin":
           router.push("/roles/responsible");
+          break;
+        case "EmployeeLogin":
+          router.push("/roles/employee");
           break;
       }
     } catch (e) {
