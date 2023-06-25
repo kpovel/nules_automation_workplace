@@ -1,23 +1,15 @@
 import { useEffect, useState } from "react";
-
-type JournalData = {
-  ID_Journal: string;
-  ObjectID: string;
-  EmployeeID: string;
-  ResponsiblePersonID: string;
-  ViolationID: string;
-  RecordDate: Date;
-};
+import { Journal } from "../utils/dataTypes";
 
 export function ViewData() {
-  const [journalData, setJournalData] = useState<null | JournalData[]>();
+  const [data, setData] = useState<null | Journal[]>();
 
   async function getJournalData() {
     try {
       const request = await fetch("/api/data/getJournalData");
 
       const response = await request.json();
-      setJournalData(response);
+      setData(response);
     } catch (err) {
       console.error(err);
     }
