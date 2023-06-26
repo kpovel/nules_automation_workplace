@@ -44,12 +44,12 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     );
 
     res.status(200).json({
-      personData: personData.recordset,
-      responsiblePersonData: responsiblePersonData.recordset,
-      employeeData: employeeData.recordset,
-      inspectionObjectData: inspectionObjectData.recordset,
-      violationData: violationData.recordset,
-      journalData: journalData.recordset,
+      person: personData.recordset,
+      responsiblePerson: responsiblePersonData.recordset,
+      employee: employeeData.recordset,
+      inspectionObject: inspectionObjectData.recordset,
+      violation: violationData.recordset,
+      journal: journalData.recordset,
     });
   } catch (e) {
     console.log(e);

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { WholeDB } from "../utils/dataTypes";
+import { WholeDB } from "../../utils/dataTypes";
+import { PersonView } from "./personView";
 
 export function ViewData() {
-  const [data, setData] = useState<null | WholeDB[]>();
+  const [data, setData] = useState<null | WholeDB>();
 
   async function getAllData() {
     try {
@@ -19,5 +20,12 @@ export function ViewData() {
     void getAllData();
   }, []);
 
-  return <div>view data</div>;
+  return (
+    <div>
+      <div className="container mx-auto">
+        <h1 className="text-2xl font-bold mb-4">View Data</h1>
+        {data && <PersonView personData={data.person} />}
+      </div>
+    </div>
+  );
 }

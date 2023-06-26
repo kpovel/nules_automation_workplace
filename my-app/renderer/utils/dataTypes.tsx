@@ -38,10 +38,10 @@ export type Journal = {
 };
 
 export type WholeDB = {
-  persons: Person[];
-  responsiblePersons: ResponsiblePerson[];
-  employees: Employee[];
-  inspectionObjects: InspectionObject[];
-  violations: Violation[];
-  journals: Journal[];
+  person: Person[];
+  responsiblePerson: ResponsiblePerson[];
+  employee: Employee[];
+  inspectionObject: InspectionObject[];
+  violation: Violation[];
+  journal: Journal[];
 };
