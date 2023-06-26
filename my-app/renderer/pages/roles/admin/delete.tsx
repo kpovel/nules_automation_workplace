@@ -1,5 +1,5 @@
+import { DeleteJournal } from "../../../components/deleteData/deleteJournal";
 import { NavigationMenu } from "../../../components/navigationMenu";
-import { ViewData } from "../../../components/viewData";
 
 const navigation: { name: string; href: string }[] = [
   { name: "Переглянути журнал", href: "/roles/admin" },
@@ -12,7 +12,8 @@ export default function Admin() {
   return (
     <div>
       <NavigationMenu navigation={navigation} />
-      <ViewData/>
+      <DeleteJournal/>
     </div>
   );
 }
+
