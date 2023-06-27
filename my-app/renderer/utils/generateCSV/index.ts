@@ -18,9 +18,21 @@ function generateCSVContent(data: WholeDB): string[][] {
   return csvContent;
 }
 
-export function generateCSV(data: WholeDB) {
+export function generateWholeDBToCSV(data: WholeDB) {
   const csvContent = generateCSVContent(data);
+  generateCSV(csvContent);
+}
 
+export function generateCSVForEmployee(data: WholeDB) {
+  const csvContent: string[][] = [];
+  csvContent.push(...generateInspectionObjectCSV(data.inspectionObject));
+  csvContent.push(...generateViolationCSV(data.violation));
+  csvContent.push(...generateJournalCSV(data.journal));
+
+  generateCSV(csvContent);
+}
+
+function generateCSV(csvContent: string[][]) {
   const csvString = csvContent
     .map((row) => row.map((cell) => `"${cell}"`).join(","))
     .join("\n");

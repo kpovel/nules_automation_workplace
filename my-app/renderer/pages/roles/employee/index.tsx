@@ -4,6 +4,7 @@ import { NavigationMenu } from "../../../components/navigationMenu";
 import { InspectionObjectView } from "../../../components/viewData/inspectionObjectView";
 import { ViolationView } from "../../../components/viewData/violationView";
 import { JournalView } from "../../../components/viewData/journalView";
+import { generateCSVForEmployee } from "../../../utils/generateCSV";
 
 const navigation: { name: string; href: string }[] = [
   { name: "Переглянути журнал", href: "/roles/employee" },
@@ -33,6 +34,7 @@ export default function Employee() {
       <NavigationMenu navigation={navigation} />
       <div className="container mx-auto">
         <h1 className="text-2xl font-bold mb-4">View Data</h1>
+        <button className="border rounded p-2 m-4" onClick={() => generateCSVForEmployee(data)}>Click me to export the data</button>
         {data && (
           <InspectionObjectView inspectionObjectData={data.inspectionObject} />
         )}
