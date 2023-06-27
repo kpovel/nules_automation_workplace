@@ -6,7 +6,7 @@ import { EmployeeView } from "./employeeView";
 import { InspectionObjectView } from "./inspectionObjectView";
 import { ViolationView } from "./violationView";
 import { JournalView } from "./journalView";
-
+import { generateCSV } from "../../utils/generateCSV";
 
 export function ViewData() {
   const [data, setData] = useState<null | WholeDB>();
@@ -30,6 +30,7 @@ export function ViewData() {
     <div>
       <div className="container mx-auto">
         <h1 className="text-2xl font-bold mb-4">View Data</h1>
+        <button className="border rounded p-2 m-4" onClick={() => generateCSV(data)}>Click me to export the data</button>
         {data && <PersonView personData={data.person} />}
         {data && (
           <ResponsiblePersonView
