@@ -1,7 +1,8 @@
 import sql from 'mssql';
 import {env} from "../../env.mjs";
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function (req, res) {
+export default async function (_req: NextApiRequest, res: NextApiResponse) {
   const sqlConfig = {
     user: env.DATABASE_USER,
     password: env.DATABASE_PASSWORD,
