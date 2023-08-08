@@ -1,7 +1,7 @@
 import { NavigationMenu } from "../../../components/navigationMenu";
 import { ViewData } from "../../../components/viewData";
 
-const navigation: { name: string; href: string }[] = [
+export const adminNavigation: { name: string; href: string }[] = [
   { name: "Переглянути журнал", href: "/roles/admin" },
   { name: "Занести дані", href: "/roles/admin/insert" },
   { name: "Оновити дані", href: "/roles/admin/update" },
@@ -12,7 +12,7 @@ const navigation: { name: string; href: string }[] = [
 export default function Admin() {
   return (
     <div>
-      <NavigationMenu navigation={navigation} />
+      <NavigationMenu navigation={adminNavigation} />
       <ViewData />
     </div>
   );

@@ -1,10 +1,10 @@
-import { navigation } from ".";
+import { responsibleNavigation } from ".";
 import { NavigationMenu } from "../../../components/navigationMenu";
 
 export default function Reports() {
   return (
     <div className="pl-5">
-      <NavigationMenu navigation={navigation} />
+      <NavigationMenu navigation={responsibleNavigation} />
       <h3 className="text-xl font-bold mb-4">ViolationsByEmployee</h3>
       <table className="table-auto">
         <thead>
